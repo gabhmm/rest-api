@@ -1,9 +1,13 @@
 package main
 
-import "github.com/gabhmm/rest-api.git/server"
+import (
+	"github.com/gabhmm/rest-api.git/database"
+	"github.com/gabhmm/rest-api.git/server"
+)
 
 func main() {
-	server := server.NewServer()
+	database.StartDB()
+	s := server.NewServer()
 
-	server.Run()
+	s.Run()
 }

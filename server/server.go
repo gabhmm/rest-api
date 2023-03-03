@@ -23,5 +23,5 @@ func (s Server) Run() {
 	router := routes.ConfigRoutes(s.server)
 
 	log.Print("server is running at port", s.port)
-	log.Fatal(router.Run("." + s.port))
+	log.Fatal(router.Run(":" + s.port))
 }
