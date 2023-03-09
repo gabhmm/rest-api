@@ -4,6 +4,7 @@ import (
 	"log"
 	"time"
 
+	"github.com/gabhmm/rest-api.git/database/migrations"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -26,6 +27,8 @@ func StartDB() {
 	config.SetMaxIdleConns(10)
 	config.SetMaxOpenConns(100)
 	config.SetConnMaxLifetime(time.Hour)
+
+	migrations.RunMigrations(db)
 }
 
 func GetDatabase() *gorm.DB {
